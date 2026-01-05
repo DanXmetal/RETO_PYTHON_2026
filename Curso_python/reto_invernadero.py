@@ -8,13 +8,13 @@ while True:
     opcion = input("Elige (1-3): ")
     
     if opcion == "1":
-        TEMP=float(input("INGRESE LA TEMPERATURA: "))
-        print(f"Temperatura guardada: {TEMP}°C")
+        temperatura=float(input("INGRESE LA TEMPERATURA: "))
+        print(f"Temperatura guardada: {temperatura}°C")
         
-        if TEMP > 35:
+        if temperatura > 35:
             print("Activando Ventiladores y Nebulizadores")
         
-        elif TEMP < 10:
+        elif temperatura < 10:
             print("ADVERTENCIA: Activando Calefacción")
         
         else:
@@ -24,19 +24,19 @@ while True:
     elif opcion == "2":
         while True:
             try:
-                HUM = int(input("HUMEDAD DEL SUELO (0-100): "))
-                if 0 <= HUM <= 100:
-                    print(f"HUMEDAD guardada: {HUM}%")
+                humedad = int(input("HUMEDAD DEL SUELO (0-100): "))
+                if 0 <= humedad <= 100:
+                    print(f"HUMEDAD guardada: {humedad}%")
                     break
                 else:
                     print("❌ SOLO VALORES ENTRE 0% Y 100%")  # ✅ Mensaje para rango
             except ValueError:
                 print("❌ SOLO UN VALOR DE 0% A 100%")
      
-        if HUM < 30:
+        if humedad < 30:
             print("INICIANDO RIEGO ")
         
-        elif HUM >= 30:
+        elif humedad >= 30:
             print("HUMEDAD OPTIMA")
         
         
