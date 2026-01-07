@@ -1,3 +1,41 @@
+def login():
+    """
+    Simula un sistema de ingreso con reintentos infinitos
+    usando un bucle while hasta que las credenciales sean correctas.
+    
+    """
+    
+    # 1. Base de Datos
+    database = {
+        "daniel": "code2026",
+    }
+
+    print("--- SECURITY SYSTEM ---")
+
+    # 2. Bucle infinito para persistencia
+    while True:
+        # Solicitamos usuario
+        usuario_input = input("\n INPUT THE USERNAME: ")
+
+        # Verificamos existencia del usuario (Búsqueda en claves del hash map)
+        if usuario_input in database:
+            
+            password_input = input("INPUT THE PASSWORD: ")
+            
+            # Verificamos credenciales
+            if password_input == database[usuario_input]:
+                print(f"¡WELCOME, {usuario_input}! ACCESS GRANTED.")
+                # 'return' finaliza la ejecución de TODA la función, rompiendo el bucle.
+                return True 
+            else:
+                print("Error: PASSWORD INCORRECT")
+                # No hay 'return' ni 'break', por lo que el bucle while se repite
+                
+        else:
+            print("Error: THE USERNAME DOES NOT EXIST IN THE DATABASE, REPEAT THE PROCESS")
+            # El bucle while se repite nuevamente
+            
+            
 def analyzetemperature():
         temperature=float(input("Enter Temperature: "))
         print(f"Saved Temperature: {temperature}°C")
@@ -38,7 +76,7 @@ def start_data_logging():
     print("--- Start data logging---")
     
     # PASO 1: ¿Cuántos datos?
-    amount = int(input("Amount of data to take"))
+    amount = int(input("Amount of data to take:  "))
     
     # PASO 2: Lista vacía
     buffer_temperature = []
@@ -63,9 +101,15 @@ def start_data_logging():
     print(f"Average: {average}°C")
     print(f"Maximum: {maximum}°C")
     print(f"Minimum: {minimum}°C")
+    
+    
+    
 
 
-
+login()
+    
+    
+    
 while True:
     print("\n=== AUTONOMOUS WINTER CONTROLLER ===")
     print("1. Monitor Temperature")
